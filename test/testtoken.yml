@@ -3,6 +3,8 @@
   hosts: all
   become: yes
   tasks:
+    - name:  wait for installton to complete
+      shell: sleep 120
     - name:   create token
       shell: kubeadm token create --print-join-command > token.sh 
       
