@@ -1,0 +1,37 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: healthcare
+spec:
+  replicas: 
+  selector:
+    matchLabels:
+      app: healthcare
+  template:
+    metadata:
+      name: testpod
+      labels:
+        app: healthcare
+    spec:
+      containers:
+        - name: container1
+          image: 10551jeeva/healthcare:v1
+          ports:
+          - containerPort: 8082
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: healthcaresvc
+spec:
+  selector:
+    app: healthcare
+  type: NodePort
+  ports:
+    - port: 8082
+      targetPort: 8082
+      nodePort: 32000
+
+

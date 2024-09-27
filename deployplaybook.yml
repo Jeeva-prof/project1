@@ -1,0 +1,9 @@
+---
+- name: Deploying in cluster
+  hosts: all
+  become: yes
+  tasks:
+    - name: copy k8s file
+      copy: src=k8s/ dest=/tmp
+    - name: run command
+      shell: sudo kubectl apply -f /tmp/deploy.yml

@@ -1,0 +1,18 @@
+---
+- name: create token in prod cluster to join node
+  hosts: all
+  become: yes
+  tasks:
+    - name:   create token
+      shell: kubeadm token create --print-join-command > token.sh 
+      
+    - name : edit token 
+      shell: sed -i 's+$+ --cri-socket unix:///var/run/cri-dockerd.sock --ignore-preflight-errors=all+' token.sh
+    
+        
+    - name: install prometheus
+      apt: name=prometheus state=present
+    - name: config prometheus
+      copy: src=iac1/prometheus_prod.yml dest=/etc/prometheus/prometheus.yml
+    - name: Restart prometheus
+      service: name=prometheus state=restarted

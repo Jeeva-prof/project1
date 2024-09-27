@@ -1,0 +1,9 @@
+---
+- name: using token to join cluster 
+  hosts: all
+  become: yes
+  tasks:
+    - name: copy token
+      copy: src=token.sh dest=/tmp/
+    - name:  join cluster
+      shell: sh /tmp/token.sh 
