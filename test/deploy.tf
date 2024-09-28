@@ -26,7 +26,7 @@ resource "aws_key_pair" "deployer" {
   public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP/vYB7ZgCxcwRPGP4kJoPttUs5aCrsBWj0QdgBVdJ8D root@master"
 }
 resource "aws_instance" "EC2" {
-  ami           = "ami-02018e94b500d5030" 
+  ami           = "ami-0b8eb446c5e792d0d" 
   instance_type = "t2.medium"
   key_name        = "deployer-key"
 #  availability_zone = "ap-south-1a"
@@ -44,7 +44,7 @@ resource "aws_instance" "EC2" {
   
 }
 resource "aws_instance" "EC21" {
-  ami           = "ami-02018e94b500d5030" 
+  ami           = "ami-0b8eb446c5e792d0d" 
   instance_type = "t2.micro"
   key_name        = "deployer-key"
 #  availability_zone = "ap-south-1a"
