@@ -4,6 +4,6 @@
   become: yes
   tasks:
     - name: copy token
-      copy: src=token.sh dest=/tmp/
+      copy: src=/tmp/token.sh dest=/tmp/
     - name:  join cluster
       shell: sh /tmp/token.sh 

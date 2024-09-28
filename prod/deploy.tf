@@ -27,7 +27,7 @@ resource "aws_key_pair" "prod" {
 }
 resource "aws_instance" "master" {
   ami           = "ami-02018e94b500d5030" 
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   key_name        = "prod-key"
 #  availability_zone = "ap-south-1a"
   vpc_security_group_ids = [aws_security_group.app1_SG.id]
