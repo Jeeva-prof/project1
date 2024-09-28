@@ -18,6 +18,6 @@
     - name: install prometheus
       apt: name=prometheus state=present
     - name: config prometheus
-      copy: src=test/prometheus_prod.yml dest=/etc/prometheus/prometheus.yml
+      copy: src=prometheus_prod.yml dest=/etc/prometheus/prometheus.yml
     - name: Restart prometheus
       service: name=prometheus state=restarted
