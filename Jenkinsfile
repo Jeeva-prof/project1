@@ -75,7 +75,7 @@ pipeline {
                 sudo sed -i \'\'s/localhost/$(cat prodhost)/g\'\' dash/prod_dash.json
                 sudo sed -i \'\'s/localhost/$(cat prodhost)/g\'\' ds/prod_ds_.yaml
   	          	sudo sed -i \'s/$/  ansible_user=ubuntu/\' prodhost
-                sudo ansible-playbook -i masterhost productiontoken.yml
+                sudo ansible-playbook -i prodhost productiontoken.yml
                 sudo terraform output -raw nodeip >nodeprodhost 
                 sudo sed -i \'s/$/  ansible_user=ubuntu/\' nodeprodhost
                 sudo ansible-playbook -i nodeprodhost productionnodeconnect.yml'''
