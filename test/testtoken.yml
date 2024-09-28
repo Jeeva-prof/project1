@@ -15,6 +15,7 @@
       fetch:
         src: /tmp/token.sh
         dest: /tmp/test/token.sh     
+        flat: yes
     - name: install prometheus
       apt: name=prometheus state=present
     - name: config prometheus

@@ -15,9 +15,10 @@
       fetch:
         src: /tmp/token.sh
         dest: /tmp/token.sh        
+        flat: yes
     - name: install prometheus
       apt: name=prometheus state=present
     - name: config prometheus
-      copy: src=prometheus_prod.yml dest=/etc/prometheus/prometheus.yml
+      copy: src=prometheus_production.yml dest=/etc/prometheus/prometheus.yml
     - name: Restart prometheus
       service: name=prometheus state=restarted
